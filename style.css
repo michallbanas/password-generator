@@ -9,15 +9,40 @@ body {
     font-family: var(--font-primary)
 }
 
+.navigácia {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .a-navigácia, .date {
+    margin-right: 1em;
+    color: var(--font-primary);
+  }
+  .a-navigácia-active {
+    margin-right: 1em;
+    text-decoration: none;
+    color: var(--font-primary);
+    cursor: default;
+  }
+  
+  .a-navigácia:visited {
+    color: var(--font-primary);
+  }
+
 main {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    justify-content: center; /* Vertikálne */
+    align-items: center; /* Horizontálne */
+    height: 70vh;
 }
 
 article {
     grid-column: 2/3;
-    width: auto;
-    height: auto;
+}
+
+h1 {
+    text-align: center;
 }
 
 p {

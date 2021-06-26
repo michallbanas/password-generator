@@ -33,19 +33,7 @@ function copyToClipboard () {
             výsledok.value = "Skopírované"
         } catch (err) {
             console.error("Nepodarilo sa skopírovať", err)
-        }
-        
+        } 
 }
 
 kopírovať.addEventListener("click", copyToClipboard)
-
-// Aktuálny dátum
-
-let dátum = new Date()
-
-if (dátum.getHours() >= 17 || dátum.getHours() < 3)
-    document.querySelector(".date").textContent = ("Dobrý večer, dnes je " + dátum.getDate() + "." + (dátum.getMonth()+1) + "." + dátum.getFullYear())
-else if (dátum.getHours() > 3 || dátum.getHours() <=10) 
-    document.querySelector(".date").textContent = ("Dobré ráno, dnes je " + dátum.getDate() + "." + (dátum.getMonth()+1) + "." + dátum.getFullYear()) 
-else
-    document.querySelector(".date").textContent = ("Dobrý deň, dnes je " + dátum.getDate() + "." + (dátum.getMonth()+1) + "." + dátum.getFullYear()) 
