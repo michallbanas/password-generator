@@ -68,6 +68,7 @@ p {
 #icon {
     cursor: pointer;
     vertical-align: bottom;
+    margin-left: 1em;
 }
 
 button {
@@ -104,4 +105,25 @@ input[type="text"] {
       input[type="number"] {
           max-width: 40px;
       }
+  }
+
+  @media only screen and (max-width: 688px) {
+    h1 {
+      font-size: 1.8em;
+    }
+  
+    .a-navigácia, .a-navigácia-active {
+      font-size: 14px;
+    }
+    input[type="text"] {
+        font-size: 0.8em;
+        width: 200px;
+    }
+
+    #icon {
+        margin-top: 1em;
+        margin-left: 0.5em;
+        width: 20px;
+        height: 20px;
+    }
   }

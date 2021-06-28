@@ -5,11 +5,11 @@ let výsledok = document.getElementById("výsledok")
 let dĺžkaHesla = document.getElementById("lenght")
 
 function výpočet () {
-    let písmená = "ABCDEFGHIJKLMNOPQRSTUVWXYZacdefghijklnopqrstuvwxyz0123456789@#$%^&*_-+=?!"
+    let znaky = "ABCDEFGHIJKLMNOPQRSTUVWXYZacdefghijklnopqrstuvwxyz0123456789@#$%^&*_-+=?!"
     let heslo = ""
 
     for (let i = 0; i<dĺžkaHesla.value; i++) {
-        let generuj = písmená[Math.floor(Math.random() * 73)]
+        let generuj = znaky[Math.floor(Math.random() * 73)]
         heslo += generuj
         výsledok.value = heslo 
     }
