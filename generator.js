@@ -1,18 +1,21 @@
 // Generovanie hesla
-
 let generujHeslo = document.getElementById("btn")
 let výsledok = document.getElementById("výsledok")
 let dĺžkaHesla = document.getElementById("lenght")
 
 function výpočet () {
-    let znaky = "ABCDEFGHIJKLMNOPQRSTUVWXYZacdefghijklnopqrstuvwxyz0123456789@#$%^&*_-+=?!"
+    
+    let znaky = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
     let heslo = ""
 
     for (let i = 0; i<dĺžkaHesla.value; i++) {
-        let generuj = znaky[Math.floor(Math.random() * 73)]
+        let array = new Uint32Array(dĺžkaHesla.value)
+        window.crypto.getRandomValues(array)
+        let generuj = znaky[array[i] % 92]
         heslo += generuj
         výsledok.value = heslo 
     }
+    console.log("Ďakujem, že si použil môj generátor hesiel :)")
 }
 
 generujHeslo.addEventListener("click", výpočet)
