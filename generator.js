@@ -1,42 +1,43 @@
-// Generovanie hesla
-let generujHeslo = document.getElementById("btn")
-let výsledok = document.getElementById("výsledok")
-let dĺžkaHesla = document.getElementById("lenght")
+// Generate Password by windows.crypto method
 
-function výpočet () {
+let generatePassword = document.getElementById("btn")
+let result = document.getElementById("result")
+let passwordLenght = document.getElementById("lenght")
+
+function calculation () {
     
-    let znaky = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
-    let heslo = ""
+    let symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+    let password = ""
 
-    for (let i = 0; i<dĺžkaHesla.value; i++) {
-        let array = new Uint32Array(dĺžkaHesla.value)
+    for (let i = 0; i<passwordLenght.value; i++) {
+        let array = new Uint32Array(passwordLenght.value)
         window.crypto.getRandomValues(array)
-        let generuj = znaky[array[i] % 92]
-        heslo += generuj
-        výsledok.value = heslo 
+        let generate = symbols[array[i] % 92]
+        password += generate
+        result.value = password 
     }
     console.log("Ďakujem, že si použil môj generátor hesiel :)")
 }
 
-generujHeslo.addEventListener("click", výpočet)
+generatePassword.addEventListener("click", calculation)
 
 // Clipboard API
 
-let kopírovať = document.getElementById("icon")
+let copy = document.getElementById("icon")
 
 function copyToClipboard () {
     if (!navigator.clipboard) {
         return
     }
 
-        let obsah = document.getElementById("výsledok").value
+        let content = document.getElementById("result").value
 
         try {
-            navigator.clipboard.writeText(obsah)
-            výsledok.value = "Skopírované"
+            navigator.clipboard.writeText(content)
+            result.value = "Skopírované"
         } catch (err) {
             console.error("Nepodarilo sa skopírovať", err)
         } 
 }
 
-kopírovať.addEventListener("click", copyToClipboard)
+copy.addEventListener("click", copyToClipboard)

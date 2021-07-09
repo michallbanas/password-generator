@@ -8,23 +8,23 @@ body {
     font-family: var(--font-primary)
 }
 
-.navigácia {
+.navigation {
     display: flex;
     justify-content: center;
   }
   
-  .a-navigácia, .date {
+  .a-navigation, .date {
     margin-right: 1em;
     color: var(--font-primary);
   }
-  .a-navigácia-active {
+  .a-navigation-active {
     margin-right: 1em;
     text-decoration: none;
     color: var(--font-primary);
     cursor: default;
   }
   
-  .a-navigácia:visited {
+  .a-navigation:visited {
     color: var(--font-primary);
   }
 
@@ -112,7 +112,7 @@ input[type="text"] {
       font-size: 1.8em;
     }
   
-    .a-navigácia, .a-navigácia-active {
+    .a-navigation, .a-navigation-active {
       font-size: 12px;
     }
 
