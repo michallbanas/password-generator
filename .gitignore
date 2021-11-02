@@ -1,1 +1,8 @@
 .vscode 
+node_modules
+cypress/downloads
+cypress/integration/kiwi
+cypress/plugins
+cypress/screenshots
+cypress/support
+cypress/fixtures

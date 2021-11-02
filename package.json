@@ -1,0 +1,24 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "**Slovak**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michallbanas/password-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michallbanas/password-generator/issues"
+  },
+  "homepage": "https://github.com/michallbanas/password-generator#readme",
+  "devDependencies": {
+    "cypress": "^8.7.0"
+  }
+}
