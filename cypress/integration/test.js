@@ -2,7 +2,7 @@
 
 beforeEach(function(){
     cy.visit("index.html") 
-}) // pred každým testom, ak chcem iba pred prvým testom tak stačí iba before
+}) 
 
 describe("Test Password Generator", () => {
     it("Či vypíše heslo", () => {

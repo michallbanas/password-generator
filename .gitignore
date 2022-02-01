@@ -1,7 +1,9 @@
 .vscode 
+.DS_Store
+cypress/.DS_Store
 node_modules
 cypress/downloads
-cypress/integration/kiwi
+cypress/integration
 cypress/plugins
 cypress/screenshots
 cypress/support
