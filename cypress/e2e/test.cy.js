@@ -25,13 +25,21 @@ describe("Test Password Generator", () => {
             .should("have.value","")
     })
     it("Či skopíruje heslo", () => {
+        
         cy.get("input#lenght")
         cy.get("button#btn")
             .click()
         cy.get("#icon")
-            .click()
-        cy.get("input#result")
-            .should("have.value", "Skopírované")
-            .clear()
+            .click({force: true})
+
+       
+        // get password from input and check if it is copied
+                    
+        cy.get("input#result").invoke("attr", "value").as("password")
+
+        cy.get("@password").then((password) => {
+            cy.log(password)
+            cy.window().its('navigator.clipboard').invoke('readText').should('eq', password )
+        })
     })
 })

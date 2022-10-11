@@ -1,43 +1,67 @@
-// Generate Password by windows.crypto method
+// Generate Password 
 
-let generatePassword = document.getElementById("btn")
-let result = document.getElementById("result")
-let passwordLenght = document.getElementById("lenght")
-
-function calculation () {
-    
-    let symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[]^_`{|}~"
-    let password = ""
-
-    for (let i = 0; i<passwordLenght.value; i++) {
-        let array = new Uint32Array(passwordLenght.value)
-        window.crypto.getRandomValues(array)
-        let generate = symbols[array[i] % 92]
-        password += generate
-        result.value = password 
-    }
-    console.log("Ďakujem, že si použil môj generátor hesiel :)")
+const passwordGeneratorConsts = {
+    result: document.getElementById("result"),
+    length: document.getElementById("length"),
+    generateButton: document.getElementById("generateBtn"),
+    copyButton: document.getElementById("copyBtn"),
+    symbols: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+    finalPassword: ""
 }
 
-generatePassword.addEventListener("click", calculation)
+const calculation = ({
+    result,
+    length,
+    generateButton,
+    symbols,
+    finalPassword
+}) => {
+    
+    const generatePassword = () => {
+        const array = new Uint32Array(length.value)
+        crypto.getRandomValues(array)
+        array.map((char) => {
+            finalPassword += symbols.charAt(char % symbols.length)
+        })
+        result.value = finalPassword
+        finalPassword = ""
+    }
+
+    const checkLengthMin = () => {
+        if (length.value < 12) {
+            result.value = "Minimálna dĺžka hesla je 8 znakov"
+        }
+    }
+
+    const checkLengthMax = () => {
+        if (length.value > 24) {
+            result.value = "Maximálna dĺžka hesla je 24 znakov"
+        }
+    }
+   
+    generateButton.addEventListener("click", () => {
+        generatePassword()
+        checkLengthMin()
+        checkLengthMax()
+    } )
+}
+
+calculation(passwordGeneratorConsts)
 
 // Clipboard API
 
-let copy = document.getElementById("icon")
-
-function copyToClipboard () {
-    if (!navigator.clipboard) {
-        return
-    }
-
-        let content = document.getElementById("result").value
-
+const copyToClipboard = ({ copyButton, result }) => {
+    const api = () => {
         try {
-            navigator.clipboard.writeText(content)
-            result.value = "Skopírované"
-        } catch (err) {
-            console.error("Nepodarilo sa skopírovať", err)
-        } 
+            navigator.clipboard.writeText(result.value)
+            result.value = "Heslo bolo skopírované do schránky"
+    } catch (error) {
+        console.log(error)
+    }
+}
+   copyButton.addEventListener("click", () => {
+       api()
+   })
 }
 
-copy.addEventListener("click", copyToClipboard)
+copyToClipboard(passwordGeneratorConsts)

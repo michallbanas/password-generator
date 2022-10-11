@@ -9,29 +9,23 @@
     <title>Password Generator</title>
   </head>
   <body>
-    <nav class="navigation">
-        <a class="a-navigation" href="https://www.michalbanas.dev">michalbanas.dev</a>
-        <a class="a-navigation" href="https://michallbanas.github.io/priemerna-mzda/">priemerná-mzda</a>
-        <a class="a-navigation-active" href="https://michallbanas.github.io/password-generator/">password-generator</a>
-        <a class="a-navigation" href="https://michallbanas.github.io/hra-mdn/">uhádni-číslo</a>
-    </nav>
     <main>
       <article>
-        <h1>Generátor Hesiel</h1>
-        <p>Vitajte na stránke, ktorá vám vygeneruje bezpečné heslo.</p>
+        <h1>Password Generator</h1>
+        <p>This generator is only for testing purpose.</p>
         <form id="password-generator">
           <div class="box-1">
-            <label for="lenght">Počet znakov</label>
-            <input type="number" id="lenght" value="16" min="12" max="24">
+            <label for="lenght">number of characters</label>
+            <input type="number" id="length" value="16" min="12" max="24">
           </div>
           <div class="box-2">
             <label for="btn"></label>
-            <button type="button" id="btn">Generovať heslo</button>
+            <button type="button" id="generateBtn">Get Password</button>
           </div>
           <div class="box-3">
             <label for="result"></label>
-            <input type="text" id="result">
-            <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28"  viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            <input type="text" id="result" value="">
+            <svg id="copyBtn" xmlns="http://www.w3.org/2000/svg" width="28" height="28"  viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
           </div>
         </form>

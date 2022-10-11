@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/michallbanas/password-generator#readme",
   "devDependencies": {
-    "cypress": "^9.4.1"
+    "cypress": "^10.9.0"
   }
 }

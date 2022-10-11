@@ -1,0 +1,22 @@
+Cypress.Commands.add("checkOD", (oneWay, returnWay) => {
+    cy.get("[data-test='ResultList']").should("be.visible")
+    cy.get("[data-test='ResultsTabReturn']")
+      .should("be.visible")
+      .and("contain", "Return")
+      .click({ force: true })
+    cy.get("[data-test='ResultList']").find(returnWay).should("be.visible")
+    cy.get("[data-test='ResultsTabAll']")
+      .should("be.visible")
+      .and("contain", "All")
+      .click({ force: true })
+    cy.get("[data-test='ResultList']").find(oneWay).should("be.visible")
+    cy.get("[data-test='ResultList']").find(returnWay).scrollIntoView().should("be.visible")
+    cy.get("[data-test='ResultsTabOneway']")
+      .scrollIntoView()
+      .should("be.visible")
+      .and("contain", "One-way")
+      .click({ force: true })
+    cy.get("[data-test='ResultList']").find(oneWay).should("be.visible")
+  })
+  
+  
