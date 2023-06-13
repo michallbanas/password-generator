@@ -1,67 +1,60 @@
 // Generate Password 
 
-const passwordGeneratorConsts = {
-    result: document.getElementById("result"),
-    length: document.getElementById("length"),
-    generateButton: document.getElementById("generateBtn"),
-    copyButton: document.getElementById("copyBtn"),
-    symbols: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !#$%&'()*+,-./:;<=>?@[]^_`{|}~",
-    finalPassword: ""
-}
-
-const calculation = ({
-    result,
-    length,
-    generateButton,
-    symbols,
-    finalPassword
-}) => {
-    
-    const generatePassword = () => {
-        const array = new Uint32Array(length.value)
-        crypto.getRandomValues(array)
-        array.map((char) => {
-            finalPassword += symbols.charAt(char % symbols.length)
-        })
-        result.value = finalPassword
-        finalPassword = ""
+const generatePassword = (length) => {
+    const characterSet = [];
+    for (let i = 33; i <= 126; i++) {
+      characterSet.push(String.fromCharCode(i));
     }
+  
+    const passwordArray = new Uint32Array(length);
+    crypto.getRandomValues(passwordArray);
+  
+    const password = Array.from(passwordArray, (value) => characterSet[value % characterSet.length]).join('');
+    return password;
+  };
 
-    const checkLengthMin = () => {
-        if (length.value < 12) {
-            result.value = "Minimálna dĺžka hesla je 8 znakov"
-        }
+  const checkLength = (length) => {
+    if (length < 8) {
+      return "Minimálna dĺžka hesla je 8 znakov";
     }
-
-    const checkLengthMax = () => {
-        if (length.value > 24) {
-            result.value = "Maximálna dĺžka hesla je 24 znakov"
-        }
+    if (length > 24) {
+      return "Maximálna dĺžka hesla je 24 znakov";
     }
-   
-    generateButton.addEventListener("click", () => {
-        generatePassword()
-        checkLengthMin()
-        checkLengthMax()
-    } )
-}
-
-calculation(passwordGeneratorConsts)
+    return "";
+  };
+  
+  const generateButton = document.getElementById("generateBtn");
+  const lengthInput = document.getElementById("length");
+  const resultOutput = document.getElementById("result");
+  
+  generateButton.addEventListener("click", () => {
+    const length = parseInt(lengthInput.value);
+    const lengthError = checkLength(length);
+    if (lengthError) {
+      resultOutput.value = lengthError;
+    } else {
+      const password = generatePassword(length);
+      resultOutput.value = password;
+    }
+  });
+  
 
 // Clipboard API
 
-const copyToClipboard = ({ copyButton, result }) => {
-    const api = () => {
-        try {
-            navigator.clipboard.writeText(result.value)
-            result.value = "Heslo bolo skopírované do schránky"
-    } catch (error) {
-        console.log(error)
-    }
-}
-   copyButton.addEventListener("click", () => {
-       api()
-   })
-}
-
-copyToClipboard(passwordGeneratorConsts)
+  const copyToClipboard = ({ copyButton, result }) => {
+    const resultInput = async () => {
+      try {
+        await navigator.clipboard.writeText(result.value);
+        result.value = 'Password copied!';
+      } catch (error) {
+        console.error('Failed to copy password:', error);
+      }
+    };
+  
+    copyButton.addEventListener('click', resultInput);
+  };
+  
+  const copyButton = document.getElementById('copyBtn');
+  const result = document.getElementById('result');
+  
+  copyToClipboard({ copyButton, result });
