@@ -1,139 +1,143 @@
 :root {
-    --font-primary: "Open Sans", sans-serif;
-    --font-size-primary: 16px;
+  --font-primary: "Open Sans", sans-serif;
+  --font-size-primary: 16px;
 }
 
 body {
-    box-sizing: border-box;
-    font-family: var(--font-primary)
+  box-sizing: border-box;
+  font-family: var(--font-primary);
 }
 
 .navigation {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .a-navigation, .date {
-    margin-right: 1em;
-    color: var(--font-primary);
-  }
-  .a-navigation-active {
-    margin-right: 1em;
-    text-decoration: none;
-    color: var(--font-primary);
-    cursor: default;
-  }
-  
-  .a-navigation:visited {
-    color: var(--font-primary);
-  }
+  display: flex;
+  justify-content: center;
+}
+
+.a-navigation,
+.date {
+  margin-right: 1em;
+  color: var(--font-primary);
+}
+.a-navigation-active {
+  margin-right: 1em;
+  text-decoration: none;
+  color: var(--font-primary);
+  cursor: default;
+}
+
+.a-navigation:visited {
+  color: var(--font-primary);
+}
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    justify-content: center; /* Vertikálne */
-    align-items: center; /* Horizontálne */
-    height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }
 
 article {
-    grid-column: 2/3;
+  grid-column: 2/3;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 p {
-    text-align: center;
+  text-align: center;
 }
 
-.box-1, .box-2, .box-3 {
-    text-align: center;
-    padding: 8px 0;
+.box-1,
+.box-2,
+.box-3 {
+  text-align: center;
+  padding: 8px 0;
 }
 
 .box-3 {
-    padding-left: 50px;
+  padding-left: 50px;
 }
 
 #password-generator {
-    border: solid 4px;
-    border-radius: 20px;
-    max-width: 500px;
-    padding: 50px 0;
-    margin: auto;
+  border: solid 4px;
+  border-radius: 20px;
+  max-width: 500px;
+  padding: 50px 0;
+  margin: auto;
 }
 
 #copyBtn {
-    cursor: pointer;
-    vertical-align: bottom;
-    margin-left: 1em;
+  cursor: pointer;
+  vertical-align: bottom;
+  margin-left: 1em;
 }
 
 button {
-    outline: none;
-    text-align: center;
-    border: solid 3px;
-    border-radius: 15px;
-    width: 210px;
-    padding: 0.6em 0 0.6em;
-    background-color: white;
-    font-family: var(--font-primary);
-    font-weight: bold;
-    font-size: 1em;
-    cursor: pointer;
+  outline: none;
+  text-align: center;
+  border: solid 3px;
+  border-radius: 15px;
+  width: 210px;
+  padding: 0.6em 0 0.6em;
+  background-color: white;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 input[type="text"] {
-    outline: none;
-    text-align: center;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: solid 3px;
-    width: 250px;
-    padding: 0.6em 0 0.6em;
-    font-family: var(--font-primary);
-    font-weight: bold;
-    font-size: 1em;
+  outline: none;
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 3px;
+  width: 250px;
+  padding: 0.6em 0 0.6em;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* Mozilla Firefox */
+
+@-moz-document url-prefix() {
+  input[type="number"] {
+    max-width: 40px;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+  h1 {
+    font-size: 1.8em;
   }
 
-  /* Mozilla Firefox */
-
-  @-moz-document url-prefix() {
-      input[type="number"] {
-          max-width: 40px;
-      }
+  .a-navigation,
+  .a-navigation-active {
+    font-size: 12px;
   }
 
-  @media only screen and (max-width: 688px) {
-    h1 {
-      font-size: 1.8em;
-    }
-  
-    .a-navigation, .a-navigation-active {
-      font-size: 12px;
-    }
-
-    #password-generator {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .box-3 {
-        padding-left: 0;
-    }
-
-    input[type="text"] {
-        font-size: 0.8em;
-        width: 200px;
-    }
-
-    #icon {
-        margin-top: 1em;
-        margin-left: 0.5em;
-        width: 20px;
-        height: 20px;
-    }
+  #password-generator {
+    padding-left: 20px;
+    padding-right: 20px;
   }
+
+  .box-3 {
+    padding-left: 0;
+  }
+
+  input[type="text"] {
+    font-size: 0.8em;
+    width: 200px;
+  }
+
+  #icon {
+    margin-top: 1em;
+    margin-left: 0.5em;
+    width: 20px;
+    height: 20px;
+  }
+}
