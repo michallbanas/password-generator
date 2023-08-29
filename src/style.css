@@ -57,7 +57,10 @@ p {
 }
 
 .box-3 {
-  padding-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10%;
 }
 
 #password-generator {
@@ -74,6 +77,10 @@ p {
   margin-left: 1em;
 }
 
+#copyBtnDiv:focus-visible {
+  border: solid 2px #3478f7;
+}
+
 button {
   outline: none;
   text-align: center;
@@ -88,6 +95,11 @@ button {
   cursor: pointer;
 }
 
+button:focus-visible {
+  border: solid 3px #3478f7;
+  color: #3478f7;
+}
+
 input[type="text"] {
   outline: none;
   text-align: center;
@@ -95,11 +107,11 @@ input[type="text"] {
   border-left: none;
   border-right: none;
   border-bottom: solid 3px;
-  width: 250px;
+  width: 225px;
   padding: 0.6em 0 0.6em;
   font-family: var(--font-primary);
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 /* Mozilla Firefox */
@@ -123,10 +135,6 @@ input[type="text"] {
   #password-generator {
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  .box-3 {
-    padding-left: 0;
   }
 
   input[type="text"] {
