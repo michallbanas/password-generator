@@ -28,5 +28,8 @@ describe("Test basic functionality", () => {
     cy.get("#result")
       .should("be.visible")
       .and("have.prop", "placeholder", "You'll see the password here.")
+
+    cy.log("Copy button should be visible")
+    cy.get("#copyBtnDiv").should("be.visible")
   })
 })
